@@ -14,7 +14,7 @@ export async function POST(request: Request) {
   let data = await request.json()
 
   data = {
-    id: Info.length,
+    id: Info.length, 
     ...data
   }
 

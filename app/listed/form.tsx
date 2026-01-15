@@ -12,7 +12,7 @@ export default function Form({onSubmit}:{onSubmit:()=>void}) {
 
   async function handlesubmit(e:React.FormEvent) {
     e.preventDefault()
-    console.log(vehicle, engine, power, desc, num)
+    console.log(vehicle, engine, power, desc, num) 
   }
 
 
