@@ -1,88 +1,37 @@
 import { NextResponse } from "next/server"
+import Info from './data'
 
 
 export async function GET() {
 
-  return NextResponse.json({
-
-    info: [
-      // {
-      //   id: 0,
-      //   vehicle: "ETB",
-      //   engine: "Twin-turbo. 3.2 L, DOHC, flat-6",
-      //   power: "850 hp",
-      //   desc: "The first turbo-flat.",
-      //   num: "49",  
-      // },
-      {
-        id: 1,
-        vehicle: "P-500",
-        engine: "Naturally aspirated, 7.0 L, SOHC, V12",
-        power: "750 hp",
-        desc: "Weirdly adaptable.",
-        num: "60",  
-      },
-      {
-        id: 2,
-        vehicle: "C11B-0",
-        engine: "Twin-turbo, 5.0 L, DOHC, V8",
-        power: "830 hp",
-        desc: "The entertainment King's tool.",
-        num: "23/1",  
-      },
-      {
-        id: 3,
-        vehicle: "LV-2",
-        engine: "Naturally aspirated, 3.3 L, DOHC, V8",
-        power: "490 hp",
-        desc: "Perfect for learning.",
-        num: "Depends on driver",  
-      },
-      {
-        id: 4,
-        vehicle: "Kremer",
-        engine: "Twin-turbo, 3.2 L, SOHC, flat-6",
-        power: "700 hp",
-        desc: "Here to entertain.",
-        num: "29",
-      },
-      // {
-      //   id: 5,
-      //   vehicle: "C-12A",
-      //   engine: "Twin-turbo, 6.0 L, DOHC, V8",
-      //   power: "860 hp",
-      //   desc: "Weisel mk.2.",
-      //   num: "23/2",
-      // },
-      {
-        id: 6,
-        vehicle: "Breakthrough",
-        engine: "Naturally aspirated, 6.0 L, OHV, V8",
-        power: "720 hp",
-        desc: "Said to have a soul.",
-        num: "24/3",
-      },
-      // {
-      //   id: 7,
-      //   vehicle: "BFR-2",
-      //   engine: "Supercharged, 6.3 L, DOHC, V8",
-      //   power: "900 hp",
-      //   desc: "Backfire 2, the electric boogaloo.",
-      //   num: "24/2",
-      // },
-      // {
-      //   id: 8,
-      //   vehicle: "XPR-1",
-      //   engine: "Naturally aspirated, 7.0 L, SOHC, V12",
-      //   power: "800 hp",
-      //   desc: "Project 370, km/h or issues?",
-      //   num: "25/1",
-      // },
-    ]
-
-  })
+  return NextResponse.json(
+    Info
+  )
 
 }
+
+export async function POST(request: Request) {
+  let data = await request.json()
+
+  data = {
+    id: Info.length,
+    ...data
+  }
+
+
+
+  Info.push(data)
+
+
+  return NextResponse.json({
+    data
+  }) 
+}
+
+
+
+
+
 
 
 // {
